@@ -1,15 +1,12 @@
-import "@/styles/globals.css";
-import { Metadata, Viewport } from "next";
+import "../styles/globals.css";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
-
+import { siteConfig } from "../config/site";
+import { fontSans } from "../config/fonts";
+import { Navbar } from "../components/navbar";
 import { Providers } from "./providers";
 
-import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
-
-export const metadata: Metadata = {
+export const metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
@@ -20,18 +17,14 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {
+export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="en">
       <head />
